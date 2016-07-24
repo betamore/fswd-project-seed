@@ -53,8 +53,6 @@ angular.module('fswd.registration', [])
         };
       }
     };
-  })
-  .controller('RegistrationFormController', function() {
   });
 
 module.exports = angular.module('fswd.registration');
