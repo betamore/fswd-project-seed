@@ -1,23 +1,23 @@
 extends ../layout.jade
 
 block body
-  div(ng-controller="RegistrationFormController as vm")
-    form(method="POST" action="/users/new" name="vm.registration" novalidate)
-      .form-group(ng-class="{ 'has-error': vm.registeration.username.$dirty && vm.registration.username.$invalid }")
+  div
+    form(method="POST" action="/users/register" name="registration" novalidate)
+      .form-group(ng-class="{ 'has-error': registeration.username.$dirty && registration.username.$invalid }")
         label(for="username") Username
-        input.form-control(type="text" name="username" ng-model="vm.user.username" required unique-username)
-        p(ng-show="vm.registration.username.$error.uniqueUsername") Username must be unique.
-      .form-group(ng-class="{ 'has-error': vm.registration.email.$dirty && vm.registration.email.$invalid }")
+        input.form-control(type="text" name="username" ng-model="user.username" required unique-username)
+        p(ng-show="registration.username.$error.uniqueUsername") Username must be unique.
+      .form-group(ng-class="{ 'has-error': registration.email.$dirty && registration.email.$invalid }")
         label(for="email") Email Address
-        input.form-control(type="email" name="email" ng-model="vm.user.email" required)
-        div(ng-show="vm.registration.email.$error.email")
+        input.form-control(type="email" name="email" ng-model="user.email" required)
+        div(ng-show="registration.email.$error.email")
           p Must be an email address.
-      .form-group(ng-class="{ 'has-error': vm.registration.password.$dirty && vm.registration.password.$invalid }")
+      .form-group(ng-class="{ 'has-error': registration.password.$dirty && registration.password.$invalid }")
         label(for="password") Password
-        input.form-control(type="password" name="password" ng-model="vm.user.password" required)
+        input.form-control(type="password" name="password" ng-model="user.password" required)
         label(for="password_confirm") Confirm Password
-        input.form-control(type="password" name="confirm_password" ng-model="user.confirm_password" registration-password-match="password")
-        button.btn.btn-default(type="submit" ng-disabled="vm.registration.$invalid") Register!
+        input.form-control(type="password" name="password_confirm" ng-model="user.password_confirm" registration-password-match="password")
+        button.btn.btn-default(type="submit" ng-disabled="registration.$invalid") Register!
 
-    pre user = {{ vm.user | json }}
-    pre registration = {{ vm.registration | json }}
+    pre user = {{ user | json }}
+    pre registration = {{ registration | json }}
