@@ -19,7 +19,8 @@
     "test-server": "NODE_ENV=test PORT=8008 nodemon ./lib/server.js",
     "protractor-backend": "npm run webdriver & npm run test-server",
     "protractor": "protractor ./protractor.config.js",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "jspm": "jspm"
   },
   "keywords": [
     "fswd",
