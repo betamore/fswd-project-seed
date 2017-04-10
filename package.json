@@ -64,12 +64,12 @@
       "baseURL": "public"
     },
     "dependencies": {
-      "angular": "github:angular/bower-angular@^1.5.8",
-      "angular-route": "github:angular/bower-angular-route@^1.5.8",
+      "angular": "github:angular/bower-angular@1.5",
+      "angular-route": "github:angular/bower-angular-route@1.5",
       "lodash": "npm:lodash@^4.13.1"
     },
     "devDependencies": {
-      "angular-mocks": "github:angular/bower-angular-mocks@^1.5.8"
+      "angular-mocks": "github:angular/bower-angular-mocks@1.5"
     }
   }
 }

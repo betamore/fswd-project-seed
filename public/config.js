@@ -8,15 +8,15 @@ System.config({
   },
 
   map: {
-    "angular": "github:angular/bower-angular@1.5.8",
-    "angular-mocks": "github:angular/bower-angular-mocks@1.5.8",
-    "angular-route": "github:angular/bower-angular-route@1.5.8",
-    "lodash": "npm:lodash@4.13.1",
-    "github:angular/bower-angular-mocks@1.5.8": {
-      "angular": "github:angular/bower-angular@1.5.8"
+    "angular": "github:angular/bower-angular@1.5.11",
+    "angular-mocks": "github:angular/bower-angular-mocks@1.5.11",
+    "angular-route": "github:angular/bower-angular-route@1.5.11",
+    "lodash": "npm:lodash@4.17.4",
+    "github:angular/bower-angular-mocks@1.5.11": {
+      "angular": "github:angular/bower-angular@1.5.11"
     },
-    "github:angular/bower-angular-route@1.5.8": {
-      "angular": "github:angular/bower-angular@1.5.8"
+    "github:angular/bower-angular-route@1.5.11": {
+      "angular": "github:angular/bower-angular@1.5.11"
     }
   }
 });
