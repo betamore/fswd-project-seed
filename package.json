@@ -1,5 +1,6 @@
 {
   "name": "fswd-project-seed",
+  "repository": "betamore/fswd-project-seed",
   "version": "1.0.0",
   "description": "Project seed for Intro to Full Stack Web Development",
   "main": "lib/server.js",
