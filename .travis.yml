@@ -1,24 +1,11 @@
+sudo: false
+dist: trusty
+
 language: node_js
 node_js:
-  - "stable"
+    - "7"
+    - "stable"
 
-services:
-  - postgresql
-  - redis-server
-
-before_install:
-  - psql -c 'create database fswd_seed_test;' -U postgres
-
-env:
-  - CXX=g++-4.8
-
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - g++-4.8
-
-script:
-  - npm run lint
-  - npm test
+cache:
+  directories:
+      - node_modules

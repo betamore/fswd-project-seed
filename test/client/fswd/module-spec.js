@@ -1,6 +1,4 @@
-var angular = require('angular');
-
-require('../../../public/app-angular');
+require('fswd');
 
 describe('fswd', function() {
   it('should exist', function() {
