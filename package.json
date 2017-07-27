@@ -27,7 +27,7 @@
   "author": "David Raynes",
   "license": "ISC",
   "devDependencies": {
-    "chai": "^4.1.0"
+    "chai": "^4.1.0",
     "connect-session-sequelize": "^4.1.0",
     "eslint": "^4.1.0",
     "eslint-plugin-angular": "^2.2.0",
