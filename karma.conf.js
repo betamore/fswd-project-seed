@@ -1,70 +1,102 @@
-'use strict';
+var path = require('path');
+
+var webpackConfig = require('./webpack.config.js');
+delete webpackConfig.entry;
+webpackConfig.externals = { angular: 'angular' };
+webpackConfig.module.rules = [
+    {
+        test: /\.js$/,
+        enforce: 'post',
+        include: path.resolve('app'),
+        loader: 'istanbul-instrumenter-loader',
+        exclude: [/-\.spec\.js$/, /\.e2e\.js$/, /node_modules/]
+    }
+];
 
 module.exports = function(config) {
-    config.set({
-        //logLevel: config.LOG_DEBUG,
-        basePath: '',
+  config.set({
 
-        frameworks: ['jspm', 'mocha', 'chai'],
+    // base path that will be used to resolve all patterns (eg. files, exclude)
+    basePath: '',
 
-        preprocessors: {
-          'public/!(jspm_packages)/**/*.js': ['sourcemap', 'coverage'],
-          'public/app-angular.js': ['sourcemap', 'coverage']
-        },
 
-        exclude: [], // hmm??
+    // frameworks to use
+    // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
+    frameworks: ['mocha', 'chai'],
 
-        jspm: {
-            loadFiles: ['test/client/**/*-spec.js'],
-            serveFiles: ['public/**/*.js']
-        },
 
-        proxies: {
-          '/public': '/base/public',
-          '/test': '/base/test',
-          '/jspm_packages': '/base/public/jspm_packages'
-        },
+    // list of files / patterns to load in the browser
+    files: [
+      'node_modules/angular/angular.js',
+      'test/client/setup.js',
+      'test/client/**/*-spec.js'
+    ],
 
-        port: 9876,
 
-        colors: true,
+    // list of files to exclude
+    exclude: [
+    ],
 
-        autoWatch: true,
 
-        browsers: ['PhantomJS'],
+    // preprocess matching files before serving them to the browser
+    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
+    preprocessors: {
+        "test/client/setup.js": ['webpack'],
+        "test/client/**/*-spec.js": ['webpack', 'sourcemap']
+    },
 
-        captureTimeout: 60000,
 
-        singleRun: true,
+    // test results reporter to use
+    // possible values: 'dots', 'progress'
+    // available reporters: https://npmjs.org/browse/keyword/karma-reporter
+    reporters: ['mocha', 'coverage'],
+    coverageReporter: {
+    //   type : 'html',
+      dir : 'coverage/',
+      reporters: [
+          { type: 'html' },
+          { type: 'text' }
+      ]
+    },
 
-        ngHtml2JsPreprocessor: {
-            stripPrefix: 'app/',
-            moduleName: 'templates'
-        },
+    // web server port
+    port: 9876,
 
-        reporters: ['spec', 'coverage'],
 
-        coverageReporter: {
-            // instrumenters: { isparta: require('isparta') },
-            // instrumenter: {
-            //     '**/*.js': 'isparta'
-            // },
-            dir: 'coverage',
-            reporters: [
-                {
-                    type: 'cobertura',
-                    subdir: '.',
-                    file: 'coverage.xml'
-                },
-                {
-                    type: 'lcov'
-                },
-                {
-                    type: 'lcovonly',
-                    subdir: '.',
-                    file: 'lcov.info'
-                }
-            ]
-        }
-    });
-};
+    // enable / disable colors in the output (reporters and logs)
+    colors: true,
+
+
+    // level of logging
+    // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+    logLevel: config.LOG_INFO,
+
+
+    // enable / disable watching file and executing tests whenever any file changes
+    autoWatch: true,
+
+
+    // start these browsers
+    // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
+    browsers: ['PhantomJS'],
+
+
+    // Continuous Integration mode
+    // if true, Karma captures browsers, runs the tests and exits
+    singleRun: false,
+
+    // Concurrency level
+    // how many browser should be started simultaneous
+    concurrency: Infinity,
+
+    webpack: webpackConfig,
+    webpackMiddleware: {
+      // webpack-dev-middleware configuration
+      // i. e.
+      stats: 'errors-only'
+    },
+    webpackServer: {
+      noInfo: true
+    }
+  })
+}
