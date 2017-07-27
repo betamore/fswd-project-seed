@@ -25,19 +25,11 @@ module.exports = function(sequelize, DataTypes) {
         notEmpty: true
       }
     }
-  }, {
-    instanceMethods: {
-      isValidPassword: function(password) {
-        return bcrypt.compareSync(password, this.password);
-      }
-    },
-    classMethods: {
-      associate: function(/*models*/) {
-      }
-    },
-    validate: {
-
-    }
   });
+
+  User.prototype.isValidPassword = function(password) {
+        return bcrypt.compareSync(password, this.password);
+  };
+
   return User;
 };
