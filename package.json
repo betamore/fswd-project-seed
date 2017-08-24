@@ -51,7 +51,7 @@
     "angular": "^1.6.5",
     "angular-mocks": "^1.6.5",
     "angular-route": "^1.6.5",
-    "bcrypt": "^1.0.2",
+    "bcrypt": "^1.0.3",
     "body-parser": "^1.17.1",
     "bootstrap": "^3.3.7",
     "bootstrap-webpack": "0.0.6",
