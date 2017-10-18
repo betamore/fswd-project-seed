@@ -1,29 +1,42 @@
 html
-  head
-    script(src="/bundle.js")
-    style
-      | body { padding-top: 70px; }
-    block title
-      title Hello world!
+    head
+        block title
+            title Hello world!
 
-  body
-    nav.navbar.navbar-default.navbar-fixed-top
-      .container
-        .navbar-header
-          a.navbar-brand(href="#") FSWD
-        .collapse.navbar-collapse.navbar-right
-          if !isAuthenticated()
-            ul.nav.navbar-nav
-              li.nav.navbar-nav
-                a(href='/users/login') Sign In
-              li.nav.navbar-nav
-                a(href='/users/register') Register
-          else
-            ul.nav.navbar-nav.navbar-right
-              li.nav.navbar-nav
-                a(href='/users/logout') Logout
-            p.navbar-text.navbar-right
-              | Hello #{user.username}!
-    .container
-      .well
-        block body
+    body
+        //- .container
+        //-     nav.navbar.navbar-light.bg-light.navbar-expand-lg
+        //-         a.navbar-brand(href="#") FSWD
+        //-         button.navbar-toggler(type="button"
+        //-                               data-toggle="collapse"
+        //-                               data-target="#navbarNav"
+        //-                               aria-controls="navbarNav"
+        //-                               aria-expanded="false"
+        //-                               aria-label="Toggle navigation")
+        //-             span.navbar-toggler-icon
+        //-         .collapse.navbar-collapse#navbarNav
+        //-             ul.navbar-nav.mr-auto
+        //-                 li.nav-item.active
+        //-                     a.nav-link(href="#") Home #[span.sr-only (current)]
+        //-                 li.nav-item
+        //-                     a.nav-link(href="#") Features
+        //-                 li.nav-item
+        //-                     a.nav-link(href="#") Pricing
+        //-                 li.nav-item
+        //-                     a.nav-link.disabled(href="#") Disabled
+        //-             if !isAuthenticated()
+        //-                 ul.navbar-nav.ml-auto
+        //-                     li.nav-item
+        //-                         a.nav-link(href='/users/login') Sign in
+        //-                     li.nav-item
+        //-                         a.nav-link(href='/users/register') Regsiter
+        //-             else
+        //-                 ul.navbar-nav.ml-auto
+        //-                     li.nav-item
+        //-                         a.nav-link(href='/users/logout') Logout
+        //-                 p.navbar-text.ml-auto Hello, #{username}
+        //-                     
+        .container
+            block body
+
+        script(src="/bundle.js")

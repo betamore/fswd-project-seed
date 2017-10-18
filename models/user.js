@@ -27,6 +27,13 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
+  User.prototype.toJSON = function () {
+     var values = Object.assign({}, this.get());
+
+     delete values.password;
+     return values;
+  };
+
   User.prototype.isValidPassword = function(password) {
         return bcrypt.compareSync(password, this.password);
   };
