@@ -69,7 +69,7 @@
     "pg": "^6.0.3",
     "popper.js": "^1.12.5",
     "pug": "^2.0.0-beta11",
-    "sequelize": "^4.1.0",
+    "sequelize": "^4.29.1",
     "sequelize-cli": "^3.0.0",
     "style-loader": "^0.18.2",
     "url-loader": "^0.5.9",
