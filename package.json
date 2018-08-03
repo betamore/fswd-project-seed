@@ -67,7 +67,7 @@
     "lodash": "^4.13.1",
     "nodemon": "^1.9.2",
     "pg": "^6.0.3",
-    "popper.js": "^1.12.5",
+    "popper.js": "^1.14.4",
     "pug": "^2.0.0-beta11",
     "sequelize": "^4.1.0",
     "sequelize-cli": "^3.0.0",
