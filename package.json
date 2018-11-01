@@ -28,7 +28,7 @@
   "license": "ISC",
   "devDependencies": {
     "chai": "^3.5.0",
-    "connect-session-sequelize": "^4.1.0",
+    "connect-session-sequelize": "^6.0.0",
     "eslint": "^4.1.0",
     "eslint-plugin-angular": "^3.0.0",
     "express-debug": "^1.1.1",
