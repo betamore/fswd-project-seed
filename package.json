@@ -72,7 +72,7 @@
     "sequelize": "^4.1.0",
     "sequelize-cli": "^3.0.0",
     "style-loader": "^0.18.2",
-    "url-loader": "^0.5.9",
+    "url-loader": "^4.0.0",
     "vue": "^2.5.2",
     "vue-loader": "^13.3.0",
     "vue-router": "^3.0.1",
